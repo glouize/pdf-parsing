@@ -61,8 +61,14 @@ def main() -> None:
         print(f"Created new document type '{name}' at {target_dir}")
 
     elif args.command == 'run':
-        # Stub for running process
-        print(f"Running '{args.document_type}' on '{args.pdf_path}'...")
+        from pdf_parsing.flows.document_flow import process_document
+        print(f"Starting pipeline for '{args.document_type}' on '{args.pdf_path}'...")
+        result = process_document(pdf_path=args.pdf_path, document_type=args.document_type)
+        if result.success:
+            print(f"Success! Inserted {len(result.record_ids)} records. Processing time: {result.processing_time_seconds:.2f}s")
+            print(f"Confidence score: {result.parse_result.confidence_score if result.parse_result else 'N/A'}")
+        else:
+            print(f"Failed: {result.error}")
 
     elif args.command == 'init-db':
         init_db()
