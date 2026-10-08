@@ -25,10 +25,11 @@ class Settings(BaseSettings):
     default_ocr_backend: str = "docling_default"
 
     # ── LLM ───────────────────────────────────────────────────────────
-    default_llm_provider: str = "openai"
-    default_llm_model: str = "gpt-4o"
+    default_llm_provider: str = "gemini"
+    default_llm_model: str = "gemini-2.5-pro"
     openai_api_key: str = ""
     anthropic_api_key: str = ""
+    gemini_api_key: str = ""
 
     # ── Parsing ───────────────────────────────────────────────────────
     default_confidence_threshold: float = 0.85

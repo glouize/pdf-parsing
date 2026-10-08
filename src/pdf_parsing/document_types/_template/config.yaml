@@ -1,8 +1,8 @@
 name: __DOCUMENT_TYPE_NAME__
 version: "1.0"
 ocr_backend: docling_default
-llm_provider: openai
-llm_model: gpt-4o
+llm_provider: gemini
+llm_model: gemini-2.5-pro
 prompt_template: prompts:SYSTEM_PROMPT
 confidence_threshold: 0.85
 max_retries: 3
